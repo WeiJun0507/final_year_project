@@ -139,7 +139,7 @@ class _EditLoyaltyPromotionState extends State<EditLoyaltyPromotion> {
           ),
         ),
         title: Text(
-          'Add new promotion item',
+          'Edit promotion item',
           style: TextStyle(
             color: Colors.redAccent[400],
           ),

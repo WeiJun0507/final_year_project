@@ -284,7 +284,7 @@ class DatabaseService extends ChangeNotifier {
 
   Stream getLoyaltyProgramPromotion() {
     try {
-      var result = _cloud.collection('Loyalty').snapshots();
+      var result = _cloud.collection('Loyalty').where('expiredDate', isGreaterThanOrEqualTo: DateTime.now()).snapshots();
       return result;
     } catch (e) {
       print(e.toString());
