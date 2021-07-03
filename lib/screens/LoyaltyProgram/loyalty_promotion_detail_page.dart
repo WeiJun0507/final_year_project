@@ -85,7 +85,7 @@ class LoyaltyPromotionDetailPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0, bottom: 5.0),
               child: Text(
-                'Discount Percentage: ${loyaltyRewards.loyaltyPoint.toString()}',
+                'Loyalty Point Require: ${loyaltyRewards.loyaltyPoint.toString()}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17.0,

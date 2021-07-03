@@ -1,9 +1,7 @@
 import 'package:final_year_project/customWidget/customCard.dart';
-import 'package:final_year_project/model/member.dart';
 import 'package:final_year_project/screens/Menu/FoodList/food_list.dart';
 import 'package:final_year_project/services/Database.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'addMenuCategory.dart';
 
