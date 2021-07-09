@@ -95,7 +95,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             obscureText: true,
             onChanged: (value) {
-              print(value);
+              _password = value;
             },
             onSaved: (value) {
               setState(() {

@@ -494,8 +494,7 @@ class DatabaseService extends ChangeNotifier {
       for (int j = 0; j < availableTime.length; j++) {
         //each table available time list for loop
         Map<String, dynamic> data = AvailableTime(
-                DateTime(date.year, date.month, date.day, availableTime[j])
-                    .add(Duration(hours: -8)))
+                DateTime(date.year, date.month, date.day, availableTime[j]))
             .toJson();
         timeReference
             .doc(availableTime[j] == 09
@@ -660,6 +659,7 @@ class DatabaseService extends ChangeNotifier {
           .doc(customerId)
           .collection('Booking')
           .where('bookingDate', isLessThanOrEqualTo: new DateTime.now())
+          .orderBy('bookingDate', descending: true)
           .get();
       return result.docs;
     } catch (e) {

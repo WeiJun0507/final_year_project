@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:final_year_project/model/member.dart';
 import 'package:final_year_project/provider.dart';
 import 'package:final_year_project/services/Database.dart';
@@ -26,32 +28,33 @@ class _ReservationBookingPageState extends State<ReservationBookingPage> {
 
   @override
   void initState() {
-    checkCurrentTime(DateTime.now().add(Duration(hours: 8)));
+    checkCurrentTime(DateTime.now());
     super.initState();
   }
 
   void checkCurrentTime(DateTime date) {
-    if (date.hour < 10) {
+    print(date.hour);
+    if (date.hour < 9) {
       setState(() {
         selectedTime = 9;
       });
-    } else if (date.hour < 12) {
+    } else if (date.hour < 11) {
       setState(() {
         selectedTime = 11;
       });
-    } else if (date.hour < 14) {
+    } else if (date.hour < 13) {
       setState(() {
         selectedTime = 13;
       });
-    } else if (date.hour < 16) {
+    } else if (date.hour < 15) {
       setState(() {
         selectedTime = 15;
       });
-    } else if (date.hour < 18) {
+    } else if (date.hour < 17) {
       setState(() {
         selectedTime = 17;
       });
-    } else if (date.hour < 20) {
+    } else if (date.hour < 19) {
       setState(() {
         selectedTime = 19;
       });
@@ -80,7 +83,7 @@ class _ReservationBookingPageState extends State<ReservationBookingPage> {
         firstDate: _currentDate,
         lastDate: DateTime(
                 DateTime.now().year, DateTime.now().month, DateTime.now().day)
-            .add(Duration(days: 7, hours: -8)));
+            .add(Duration(days: 7)));
     if (pickedDate != null && pickedDate != _currentDate)
       setState(() {
         _currentDate = pickedDate;
@@ -196,7 +199,7 @@ class _ReservationBookingPageState extends State<ReservationBookingPage> {
                         scrollDirection: Axis.horizontal,
                         itemCount: 6,
                         itemBuilder: (context, index) {
-                          return selectedTime < _currentDate.hour
+                          return _currentDate.hour > selectedTime
                               ? Card(
                                   color: Colors.white,
                                   shape: RoundedRectangleBorder(
@@ -226,6 +229,7 @@ class _ReservationBookingPageState extends State<ReservationBookingPage> {
                                 )
                               : InkWell(
                                   onTap: () {
+                                    if (_currentDate.hour > availableTime[index]['time']) return;
                                     _onSelectTime(index);
                                   },
                                   child: Card(
