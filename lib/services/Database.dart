@@ -5,7 +5,6 @@ import 'package:final_year_project/model/LoyaltyRewards.dart';
 import 'package:final_year_project/model/Table.dart';
 import 'package:final_year_project/model/availableTime.dart';
 import 'package:final_year_project/model/member.dart';
-import 'package:final_year_project/model/newUserVoucher.dart';
 import 'package:final_year_project/model/order.dart';
 import 'package:final_year_project/model/voucher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -301,6 +300,7 @@ class DatabaseService extends ChangeNotifier {
       return result;
     } catch (e) {
       print(e.toString());
+      return null;
     }
   }
 

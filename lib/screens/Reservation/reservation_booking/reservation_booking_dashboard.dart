@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:final_year_project/model/member.dart';
 import 'package:final_year_project/provider.dart';
 import 'package:final_year_project/services/Database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
